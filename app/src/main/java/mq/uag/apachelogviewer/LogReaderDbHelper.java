@@ -173,7 +173,10 @@ public class LogReaderDbHelper extends SQLiteOpenHelper {
      */
     /*private*/public long getHostID(String hostName, SQLiteDatabase db) {
 
-        return  0;
+        Cursor cursor = db.rawQuery("SELECT _id FROM host WHERE host_name='"+hostName+"'",null);
+        if(cursor != null)
+            cursor.moveToFirst();
+        return cursor.getLong(0);
     }
 
     /**
@@ -190,7 +193,10 @@ public class LogReaderDbHelper extends SQLiteOpenHelper {
      */
     /*private*/public long getUrlID(String uName , SQLiteDatabase db)
     {
-        return  0;
+        Cursor cursor = db.rawQuery("SELECT _id FROM url WHERE url_name='"+uName+"'",null);
+        if(cursor != null)
+            cursor.moveToFirst();
+        return cursor.getLong(0);
     }
 
     /**
@@ -207,7 +213,10 @@ public class LogReaderDbHelper extends SQLiteOpenHelper {
      */
     /*private*/public long getRemoteHostID(String hName , SQLiteDatabase db)
     {
-        return  0;
+        Cursor cursor = db.rawQuery("SELECT _id FROM remote_host WHERE remote_host_name='"+hName+"'",null);
+        if(cursor != null)
+            cursor.moveToFirst();
+        return cursor.getLong(0);
 
     }
 

@@ -127,8 +127,20 @@ public class LogManager {
         //LogReaderContract.ALEntry.COLUMN_NAME_CONTENTLENGTH
         //LogReaderContract.ALEntry.COLUMN_NAME_DATE
 
+        List<Map<String,String>> buffer = new ArrayList<>();
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss" , Locale.FRENCH);
 
-        return null;
+        for(LogEntry le:lle)
+        {
+            Map<String,String> curRootEntry = new HashMap<>();
+            buffer.add(curRootEntry);
+            curRootEntry.put(LogReaderContract.ALEntry.COLUMN_NAME_REMOTEHOST,le._remoteHost);
+            curRootEntry.put(LogReaderContract.ALEntry.COLUMN_NAME_CONTENTLENGTH,Integer.toString(le._content_length));
+            curRootEntry.put(LogReaderContract.ALEntry.COLUMN_NAME_DATE,df.format(le.entryDate));
+
+        }
+
+        return buffer;
     }
 
 
@@ -161,9 +173,24 @@ public class LogManager {
             //LogReaderContract.ALEntry.COLUMN_NAME_URL
             //LogReaderContract.ALEntry.COLUMN_NAME_HTTPCODE
 
+        List<List<Map<String,String>>> buffer = new ArrayList<>();
+        int test;
 
 
-        return null;
+        for(LogEntry le:lle)
+        {
+            List<Map<String,String>> childData = new ArrayList<>();
+            Map<String,String> curChildData = new HashMap<>();
+            childData.add(curChildData);
+
+            curChildData.put(LogReaderContract.ALEntry.COLUMN_NAME_HOST,le._hostName);
+            curChildData.put(LogReaderContract.ALEntry.COLUMN_NAME_URL,le._url);
+            curChildData.put(LogReaderContract.ALEntry.COLUMN_NAME_HTTPCODE,Integer.toString(le._http_code));
+        }
+
+
+
+        return buffer;
     }
 
 

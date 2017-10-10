@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WSLogView.iml" filepath="$PROJECT_DIR$/WSLogView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android102-java103.iml" filepath="$PROJECT_DIR$/android102-java103.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
